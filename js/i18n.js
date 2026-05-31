@@ -109,7 +109,7 @@ window.FocusVeilI18n = {
         ],
 
         /* Footer */
-        footer_copy: "© 2025 FocusVeil. Tüm hakları saklıdır.",
+        footer_copy: "© 2025 Focusveil. Tüm hakları saklıdır.",
         footer_privacy: "Gizlilik Politikası",
         footer_contact: "İletişim"
     },
@@ -133,7 +133,7 @@ window.FocusVeilI18n = {
 
         /* Features section headings */
         features_label: "What Does It Do?",
-        features_title: "The Power of FocusVeil",
+        features_title: "The Power of Focusveil",
         features_subtitle: "One shield against all distractions.",
 
         /* ──────────────────────────────────────────────────────
@@ -188,7 +188,7 @@ window.FocusVeilI18n = {
         ────────────────────────────────────────────────────── */
         faq: [
             {
-                q: "Is FocusVeil free?",
+                q: "Is Focusveil free?",
                 a: "Yes, it's completely free. We also have no plans to change that in the foreseeable future."
             },
             {
@@ -210,7 +210,7 @@ window.FocusVeilI18n = {
         ],
 
         /* Footer */
-        footer_copy: "© 2025 FocusVeil. All rights reserved.",
+        footer_copy: "© 2025 Focusveil. All rights reserved.",
         footer_privacy: "Privacy Policy",
         footer_contact: "Contact"
     }
