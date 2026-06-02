@@ -1,12 +1,3 @@
-// ═══════════════════════════════════════════════════════════════
-//  js/i18n.js  ·  Focusveil
-//  ─ Dil yöneticisi: window.FocusVeilLangs'ı okur
-//  ─ Yeni bir dil eklemek için:
-//      1. lang/xx.js oluştur  (lang/en.js'i şablon olarak kullan)
-//      2. index.html'e <script src="lang/xx.js"></script> ekle
-//      3. Bitti — select kutusu otomatik güncellenir
-// ═══════════════════════════════════════════════════════════════
-
 window.FocusVeilI18n = (function () {
 
     /** Kayıtlı tüm dil kodlarını döndürür ['en', 'tr', ...] */

@@ -812,85 +812,56 @@ section {
 }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
-#footer {
-    /* Navbar ile aynı tarz sabit arka plan */
-    background: rgba(2, 12, 24, .82);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border-top: 1px solid rgba(80, 110, 220, .12);
-    box-shadow: 0 -1px 0 rgba(80, 110, 220, .08);
-    padding: 1.375rem 0;
+footer {
     position: relative;
     z-index: 1;
-}
-
-.footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    background: rgba(2, 12, 24, .82);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-top: 1px solid rgba(80, 110, 220, .12);
+    padding: 1.375rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 100%;
 }
 
-/* Orta: marka adı */
-.footer-logo {
-    font-family: var(--font-display);
-    font-size: .95rem;
+.footer-logo-text {
+    font-family: 'Orbitron', monospace;
+    font-size: .85rem;
     font-weight: 700;
     letter-spacing: .14em;
-    color: var(--text-dim);
-    /* Tam ortalama için absolute ile ortalıyoruz */
+    color: #3a5070;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
-    user-select: none;
 }
 
-/* Sol: GitHub ikonu */
-.footer-github {
+.footer-gh {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    color: var(--text-dim);
-    background: rgba(30, 50, 100, .0);
+    color: #3a5070;
     border: 1px solid transparent;
-    transition:
-        color var(--t-med) var(--ease),
-        background var(--t-med) var(--ease),
-        border-color var(--t-med) var(--ease),
-        box-shadow var(--t-med) var(--ease),
-        transform var(--t-med) var(--ease-spring);
+    transition: color 250ms ease, background 250ms ease,
+        border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
 }
 
-.footer-github:hover {
+.footer-gh:hover {
     color: #fff;
     background: rgba(30, 50, 110, .45);
     border-color: rgba(99, 130, 241, .35);
-    box-shadow:
-        0 0 16px rgba(99, 102, 241, .45),
-        0 0 40px rgba(99, 102, 241, .20),
-        0 0 70px rgba(56, 189, 248, .10);
+    box-shadow: 0 0 16px rgba(99, 102, 241, .45), 0 0 40px rgba(99, 102, 241, .2);
     transform: scale(1.12);
 }
 
-.footer-github:active {
-    transform: scale(1.04);
-}
-
-.gh-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-}
-
-/* Sağ: denge dolgusu */
-.footer-right {
-    width: 40px;
+.footer-gh svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }
 
 /* ─── SCROLL REVEAL ──────────────────────────────────────── */

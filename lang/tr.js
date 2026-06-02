@@ -20,6 +20,42 @@
         features_title: "Focusveil'in Gücü",
         features_subtitle: "Tüm dikkat dağıtıcılara karşı tek kalkan.",
 
+        // 404.html
+        err_title: "Bu sayfa uzayda kaybolmuş&hellip;",
+        err_desc: "Aradığınız sayfa bulunamadı. Taşınmış, silinmiş veya hiç var olmamış olabilir.",
+        err_back: "Ana Sayfaya Dön",
+
+        // why.html
+        hero_title: "Gitmene üzüldük.<br><span>Focusveil</span> seni özleyecek.",
+        hero_sub: `Odaklanma yolculuğun burada bitmek zorunda değil. Bir şeyler yolunda gitmediyse,
+        bunu öğrenmek isteriz — ve daha da çok, geri dönmeni isteriz.`,
+        hero_feedback_trigger: `Geri Bildirim Gönder <i class="fa-solid fa-arrow-down"></i>`,
+
+        reasons_title: "Neleri geride bırakıyorsun",
+        reasons_title_sub: "Focusveil'i farklı kılan neydi",
+
+        bugs: "🐛 Çok fazla hata",
+        missing: "🧩 Eksik özellikler",
+        slow: "⚡ Tarayıcımı yavaşlattı",
+        confusing: "😵 Kullanımı karmaşıktı",
+        temporary: "🔄 Sadece ara veriyorum",
+        other: "💬 Diğer",
+
+        feedback_title: "Nedenini bizimle paylaşır mısın?",
+        feedback_sub: "Geri bildirimlerin, Focusveil'i herkes için daha iyi hale getirmemize yardımcı oluyor.",
+        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Geri bildirimi gönder`,
+        feedback_thanks: "Geri bildirim için teşekkürler!",
+        feedback_placeholder: "Eklemek istediğiniz başka bir şey var mı?",
+
+        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Focusveil'i Tekrar İndir
+                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>`,
+
+        cta_label: "Fikrini mi değiştirdin?",
+
         features: [
             {
                 icon: "<i class='fa-solid fa-eye-low-vision'></i>",

@@ -22,6 +22,42 @@
         features_title: "The Power of Focusveil",
         features_subtitle: "One shield against all distractions.",
 
+        // 404.html
+        err_title: "This page is lost in space&hellip;",
+        err_desc: "The page you're looking for doesn't exist. It may have been moved, deleted, or never existed at all.",
+        err_back: "Back to Home",
+
+        // why.html
+        hero_title: `We're sorry to see you go.<br><span>Focusveil</span> will miss you.`,
+        hero_sub: `Your focus journey doesn't have to end here. If something wasn't working,
+        we'd love to know — and we'd love even more to have you back.`,
+        hero_feedback_trigger: `Send Feedback <i class="fa-solid fa-arrow-down"></i>`,
+
+        reasons_title: "Here's what you're leaving behind",
+        reasons_title_sub: "What made Focusveil different",
+
+        bugs: "🐛 Too many bugs",
+        missing: "🧩 Missing features",
+        slow: "⚡ Slowed my browser",
+        confusing: "😵 Confusing to use",
+        temporary: "🔄 Just taking a break",
+        other: "💬 Other",
+
+        feedback_title: "Mind telling us why?",
+        feedback_sub: "Your feedback helps us make Focusveil better for everyone.",
+        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send feedback`,
+        feedback_thanks: "Thanks for the feedback!",
+        feedback_placeholder: "Any extra thoughts?",
+
+        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Reinstall Focusveil
+                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>`,
+
+        cta_label: "Changed your mind?",
+
         features: [
             {
                 icon: "<i class='fa-solid fa-eye-low-vision'></i>",

@@ -20,6 +20,42 @@
         features_title: "La puissance de Focusveil",
         features_subtitle: "Un bouclier contre toutes les distractions.",
 
+        // 404.html
+        err_title: "Cette page s'est perdue dans l'espace&hellip;",
+        err_desc: "La page que vous recherchez n'existe pas. Elle a peut-être été déplacée, supprimée ou n'a jamais existé.",
+        err_back: "Retour à l'accueil",
+
+        // why.html
+        hero_title: `Nous sommes désolés de vous voir partir.<br><span>Focusveil</span> vous manquera.`,
+        hero_sub: `Votre parcours de concentration n'a pas besoin de s'arrêter ici. Si quelque chose ne fonctionnait pas,
+        nous aimerions le savoir — et nous aimerions encore plus vous revoir.`,
+        hero_feedback_trigger: `Envoyer un Commentaire <i class="fa-solid fa-arrow-down"></i>`,
+
+        reasons_title: "Voici ce que vous laissez derrière vous",
+        reasons_title_sub: "Ce qui rendait Focusveil différent",
+
+        bugs: "🐛 Trop de bugs",
+        missing: "🧩 Fonctionnalités manquantes",
+        slow: "⚡ A ralenti mon navigateur",
+        confusing: "😵 Était confus à utiliser",
+        temporary: "🔄 Je fais juste une pause",
+        other: "💬 Autre",
+
+        feedback_title: "Voulez-vous nous dire pourquoi ?",
+        feedback_sub: "Vos commentaires nous aident à améliorer Focusveil pour tout le monde.",
+        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Envoyer un commentaire`,
+        feedback_thanks: "Merci pour votre commentaire!",
+        feedback_placeholder: "Avez-vous autre chose à ajouter?",
+
+        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Focusveil Réinstaller
+                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>`,
+
+        cta_label: "Vous avez changé d'avis?",
+
         features: [
             {
                 icon: "<i class='fa-solid fa-eye-low-vision'></i>",

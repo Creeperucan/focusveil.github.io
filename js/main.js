@@ -1,13 +1,3 @@
-// ═══════════════════════════════════════════════════════════════
-//  js/main.js  ·  Focusveil
-//  ─ Yıldız alanı + meteor animasyonu
-//  ─ Dil select-box yönetimi
-//  ─ Özellik kartı render
-//  ─ SSS accordion
-//  ─ Scroll reveal
-//  ─ Navbar scroll efekti
-// ═══════════════════════════════════════════════════════════════
-
 'use strict';
 
 /* ─── DURUM ──────────────────────────────────────────────── */
@@ -31,9 +21,6 @@ function applyLanguage(lang) {
         const key = el.dataset.i18n;
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
-
-    // localStorage'a kaydet
-    try { localStorage.setItem('fv_lang', lang); } catch (_) { }
 
     // Dropdown label & selected state güncelle
     syncDropdownLabel(lang);
@@ -361,9 +348,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initReveal();
 
-    // Kaydedilmiş dili yükle, yoksa varsayılan 'en'
-    let savedLang = 'en';
-    try { savedLang = localStorage.getItem('fv_lang') || 'en'; } catch (_) { }
+    const browserLang = (navigator.language || 'en')
+        .split('-')[0]
+        .toLowerCase();
+
     const available = window.FocusVeilI18n.available();
-    applyLanguage(available.includes(savedLang) ? savedLang : 'en');
+
+    const lang = available.includes(browserLang)
+        ? browserLang
+        : 'en';
+
+    applyLanguage(lang);
 });

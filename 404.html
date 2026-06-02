@@ -11,296 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400@display=swap"
         rel="stylesheet" />
-    <style>
-        /* ── Temel ────────────────────────────────────────── */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            height: 100%;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            overflow: hidden;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: #cfe0f5;
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* ── Parallax yıldızlar ───────────────────────────── */
-        #stars,
-        #stars2,
-        #stars3 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: transparent;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        #stars {
-            width: 1px;
-            height: 1px;
-            animation: animStar 50s linear infinite;
-        }
-
-        #stars2 {
-            width: 2px;
-            height: 2px;
-            animation: animStar 100s linear infinite;
-        }
-
-        #stars3 {
-            width: 3px;
-            height: 3px;
-            animation: animStar 150s linear infinite;
-        }
-
-        #stars::after,
-        #stars2::after,
-        #stars3::after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            left: 0;
-            background: transparent;
-        }
-
-        #stars::after {
-            width: 1px;
-            height: 1px;
-        }
-
-        #stars2::after {
-            width: 2px;
-            height: 2px;
-        }
-
-        #stars3::after {
-            width: 3px;
-            height: 3px;
-        }
-
-        @keyframes animStar {
-            from {
-                transform: translateY(0px);
-            }
-
-            to {
-                transform: translateY(-2000px);
-            }
-        }
-
-        /* ── İçerik ────────────────────────────────────────── */
-        .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            max-width: 560px;
-        }
-
-        /* Büyük 404 */
-        .err-code {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(6rem, 22vw, 11rem);
-            font-weight: 900;
-            letter-spacing: .06em;
-            line-height: 1;
-            color: #fff;
-            text-shadow:
-                0 0 30px rgba(99, 102, 241, .75),
-                0 0 80px rgba(99, 102, 241, .35),
-                0 0 150px rgba(56, 189, 248, .15);
-            animation: glow-pulse 5s ease-in-out infinite;
-            user-select: none;
-        }
-
-        @keyframes glow-pulse {
-
-            0%,
-            100% {
-                text-shadow:
-                    0 0 30px rgba(99, 102, 241, .75),
-                    0 0 80px rgba(99, 102, 241, .35),
-                    0 0 150px rgba(56, 189, 248, .15);
-            }
-
-            50% {
-                text-shadow:
-                    0 0 50px rgba(99, 102, 241, 1),
-                    0 0 110px rgba(99, 102, 241, .55),
-                    0 0 200px rgba(56, 189, 248, .25);
-            }
-        }
-
-        /* Rozet */
-        .err-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            background: rgba(99, 102, 241, .1);
-            border: 1px solid rgba(99, 102, 241, .28);
-            border-radius: 100px;
-            padding: .35rem 1.1rem;
-            font-family: 'Syne', sans-serif;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: #a5b4fc;
-        }
-
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #818cf8;
-            box-shadow: 0 0 8px #818cf8;
-            animation: dot-blink 2.4s ease-in-out infinite;
-        }
-
-        @keyframes dot-blink {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: .3;
-                transform: scale(.7);
-            }
-        }
-
-        /* Başlık */
-        .err-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
-            font-weight: 800;
-            color: #cfe0f5;
-            line-height: 1.3;
-        }
-
-        /* Açıklama */
-        .err-desc {
-            font-size: 1rem;
-            font-weight: 300;
-            color: #3a5070;
-            line-height: 1.75;
-            max-width: 380px;
-        }
-
-        /* Geri dön butonu */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            background: linear-gradient(135deg, #4f46e5, #6366f1);
-            color: #fff;
-            font-family: 'Syne', sans-serif;
-            font-size: .9375rem;
-            font-weight: 700;
-            letter-spacing: .035em;
-            padding: .85rem 2rem;
-            border-radius: 100px;
-            border: 1px solid rgba(99, 148, 255, .2);
-            text-decoration: none;
-            box-shadow:
-                0 0 30px rgba(99, 102, 241, .35),
-                0 8px 28px rgba(0, 0, 0, .5),
-                inset 0 1px 0 rgba(255, 255, 255, .1);
-            transition: transform 300ms cubic-bezier(.34, 1.56, .64, 1),
-                box-shadow 300ms ease;
-            margin-top: .5rem;
-        }
-
-        .back-btn:hover {
-            transform: translateY(-4px) scale(1.025);
-            box-shadow:
-                0 0 50px rgba(99, 102, 241, .55),
-                0 16px 40px rgba(0, 0, 0, .5),
-                inset 0 1px 0 rgba(255, 255, 255, .18);
-        }
-
-        .back-btn:active {
-            transform: translateY(-1px) scale(.99);
-        }
-
-        .back-btn svg {
-            flex-shrink: 0;
-            transition: transform 250ms ease;
-        }
-
-        .back-btn:hover svg {
-            transform: translateX(-3px);
-        }
-
-        /* Focusveil logo linki */
-        .brand-link {
-            position: fixed;
-            top: 1.5rem;
-            left: 2rem;
-            font-family: 'Orbitron', monospace;
-            font-size: .9rem;
-            font-weight: 700;
-            letter-spacing: .14em;
-            color: #3a5070;
-            text-decoration: none;
-            z-index: 10;
-            transition: color 150ms ease;
-        }
-
-        .brand-link:hover {
-            color: #38bdf8;
-        }
-
-        /* Küçük ekran */
-        @media (max-width: 480px) {
-            .err-desc {
-                font-size: .9rem;
-            }
-
-            .back-btn {
-                font-size: .875rem;
-                padding: .75rem 1.6rem;
-            }
-        }
-
-        /* Hareket azalt */
-        @media (prefers-reduced-motion: reduce) {
-
-            #stars,
-            #stars2,
-            #stars3 {
-                display: none;
-            }
-
-            .err-code,
-            .badge-dot {
-                animation: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/404.css">
 </head>
 
 <body>
@@ -310,26 +21,18 @@
     <div id="stars2" aria-hidden="true"></div>
     <div id="stars3" aria-hidden="true"></div>
 
-    <!-- Logo -->
-    <a href="index.html" class="brand-link" aria-label="Ana sayfaya dön">Focusveil</a>
-
     <!-- 404 içerik -->
     <div class="container">
 
-        <div class="err-badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Page not found
-        </div>
-
         <p class="err-code" aria-label="404 hatası">404</p>
 
-        <h1 class="err-title">This page is lost in space&hellip;</h1>
+        <h1 class="err-title" data-i18n="err_title">This page is lost in space&hellip;</h1>
 
-        <p class="err-desc">
+        <p class="err-desc" data-i18n="err_desc">
             The page you're looking for doesn't exist. It may have been moved, deleted, or never existed at all.
         </p>
 
-        <a href="index.html" class="back-btn">
+        <a href="index.html" class="back-btn" data-i18n="err_back">
             <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor" aria-hidden="true">
                 <path
                     d="M9.707 16.707a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l6-6a1 1 0 1 1 1.414 1.414L5.414 9H17a1 1 0 1 1 0 2H5.414l4.293 4.293a1 1 0 0 1 0 1.414z" />
@@ -339,34 +42,15 @@
 
     </div>
 
-    <script>
-        // Parallax yıldız gölgelerini üret (main.js ile aynı mantık)
-        (function () {
-            function makeShadows(n) {
-                const parts = [];
-                for (let i = 0; i < n; i++) {
-                    parts.push(Math.floor(Math.random() * 2000) + 'px ' +
-                        Math.floor(Math.random() * 2000) + 'px #FFF');
-                }
-                return parts.join(', ');
-            }
+    <script src="lang/en.js"></script>
+    <script src="lang/tr.js"></script>
+    <script src="lang/de.js"></script>
+    <script src="lang/fr.js"></script>
+    <script src="lang/es.js"></script>
+    <script src="lang/pt.js"></script>
 
-            const small = makeShadows(700);
-            const medium = makeShadows(200);
-            const big = makeShadows(100);
-
-            document.getElementById('stars').style.boxShadow = small;
-            document.getElementById('stars2').style.boxShadow = medium;
-            document.getElementById('stars3').style.boxShadow = big;
-
-            const style = document.createElement('style');
-            style.textContent =
-                '#stars::after  { box-shadow: ' + small + '; }' +
-                '#stars2::after { box-shadow: ' + medium + '; }' +
-                '#stars3::after { box-shadow: ' + big + '; }';
-            document.head.appendChild(style);
-        })();
-    </script>
+    <script src="js/i18n.js"></script>
+    <script src="js/404.js"></script>
 
 </body>
 

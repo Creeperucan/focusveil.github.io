@@ -20,6 +20,42 @@
         features_title: "Die Kraft von Focusveil",
         features_subtitle: "Ein Schutzschild gegen alle Ablenkungen.",
 
+        // 404.html
+        err_title: "Diese Seite ist im Weltall verloren&hellip;",
+        err_desc: "Die gesuchte Seite existiert nicht. Sie wurde möglicherweise verschoben, gelöscht oder existierte nie.",
+        err_back: "Zurück zur Startseite",
+
+        // why.html
+        hero_title: `Wir sind traurig, dich gehen zu sehen.<br><span>Focusveil</span> wird dich vermissen.`,
+        hero_sub: `Deine Fokusreise muss hier nicht enden. Wenn etwas nicht funktioniert hat,
+        würden wir es gerne wissen — und noch mehr, wir würden dich gerne wieder begrüßen.`,
+        hero_feedback_trigger: `Sende Feedback <i class="fa-solid fa-arrow-down"></i>`,
+
+        reasons_title: "Das lässt du hinter dir",
+        reasons_title_sub: "Was Focusveil besonders machte",
+
+        bugs: "🐛 Zu viele Fehler",
+        missing: "🧩 Fehlende Funktionen",
+        slow: "⚡ Verlangsamte meinen Browser",
+        confusing: "😵 War zu kompliziert",
+        temporary: "🔄 Nur eine Pause",
+        other: "💬 Andere",
+
+        feedback_title: "Warum gibst du uns Bescheid?",
+        feedback_sub: "Dein Feedback hilft uns, Focusveil für alle zu verbessern.",
+        send_feedback: `<i class='fa-regular fa-paper-plane' aria-hidden='true'></i> Feedback senden`,
+        feedback_thanks: "Danke für dein Feedback!",
+        feedback_placeholder: "Haben Sie noch etwas hinzuzufügen?",
+
+        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Focusveil Erneut Installieren
+                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>`,
+
+        cta_label: "Hab deine Meinung geändert?",
+
         features: [
             {
                 icon: "<i class='fa-solid fa-eye-low-vision'></i>",

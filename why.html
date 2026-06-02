@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You removed Focusveil — Come back anytime</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/why.css" />
+</head>
+
+<body>
+
+    <!-- Stars -->
+    <div id="stars" aria-hidden="true"></div>
+    <div id="stars2" aria-hidden="true"></div>
+    <div id="stars3" aria-hidden="true"></div>
+
+    <main class="page">
+
+        <!-- ── Hero ─────────────────────────────────────────────── -->
+        <section class="hero">
+            <h1 class="hero-title" data-i18n="hero_title">
+                We're sorry to see you go.<br>
+                <span>Focusveil</span> will miss you.
+            </h1>
+
+            <p class="hero-sub" data-i18n="hero_sub">
+                Your focus journey doesn't have to end here. If something wasn't working,
+                we'd love to know — and we'd love even more to have you back.
+            </p>
+
+            <a href="#feedback" class="hero-feedback-trigger" data-i18n="hero_feedback_trigger">
+                Share Feedback <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </section>
+
+        <!-- ── Why keep it ───────────────────────────────────────── -->
+        <section aria-label="Reasons to reinstall" style="width:100%; max-width:1100px; margin: 0 auto;" id="features"
+            aria-labelledby="features-heading">
+            <div style="text-align:center; margin-bottom:2.5rem;">
+                <p style="font-family:'Syne',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#38bdf8; margin-bottom:.75rem;"
+                    data-i18n="reasons_title">
+                    Here's what you're leaving behind
+                </p>
+                <h2 style="font-family:'Syne',sans-serif; font-size:clamp(1.5rem,4vw,2.25rem); font-weight:800; color:#fff;"
+                    data-i18n="reasons_title_sub">
+                    What made Focusveil different
+                </h2>
+            </div>
+
+            <div class="section-inner" style="width: 100%; padding: 0;">
+                <div class="cards-grid" id="features-grid"></div>
+            </div>
+        </section>
+
+        <!-- ── Feedback ──────────────────────────────────────────── -->
+        <section class="feedback-section" aria-label="Feedback form" id="feedback">
+            <h2 class="feedback-title" data-i18n="feedback_title">Mind telling us why?</h2>
+            <p class="feedback-sub" data-i18n="feedback_sub">Your feedback helps us make Focusveil better for
+                everyone.</p>
+
+            <div class="reasons-pick" id="reason-pills">
+                <label class="pick-label" data-i18n="bugs"><input type="radio" name="reason" value="bugs"> 🐛 Too many
+                    bugs</label>
+                <label class="pick-label" data-i18n="missing"><input type="radio" name="reason" value="missing"> 🧩
+                    Missing features</label>
+                <label class="pick-label" data-i18n="slow"><input type="radio" name="reason" value="slow"> ⚡ Slowed my
+                    browser</label>
+                <label class="pick-label" data-i18n="confusing"><input type="radio" name="reason" value="confusing"> 😵
+                    Confusing to use</label>
+                <label class="pick-label" data-i18n="temporary"><input type="radio" name="reason" value="temporary"> 🔄
+                    Just taking a break</label>
+                <label class="pick-label" data-i18n="other"><input type="radio" name="reason" value="other"> 💬
+                    Other</label>
+            </div>
+
+            <textarea class="feedback-area" id="feedback-text" data-i18n-placeholder="feedback_placeholder"
+                rows="3"></textarea>
+
+            <button class="send-btn" id="send-btn" type="button" data-i18n="send_feedback">
+                <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                Send Feedback
+            </button>
+        </section>
+
+        <!-- ── CTA ───────────────────────────────────────────────── -->
+        <div class="cta-area">
+            <p class="cta-label" data-i18n="cta_label">Changed your mind?</p>
+            <!--
+        ╔══════════════════════════════════════════════════════════╗
+        ║  Bağlantıyı GitHub releases sayfanla değiştir:          ║
+        ║  href="https://github.com/KULLANICI/REPO/releases"      ║
+        ╚══════════════════════════════════════════════════════════╝
+      -->
+            <a href="https://github.com/Creeperucan/Focusveil-extension/releases" target="_blank"
+                rel="noopener noreferrer" class="reinstall-btn" data-i18n="reinstall_btn">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                Reinstall Focusveil
+                <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <a href="https://github.com/Creeperucan/" target="_blank" rel="noopener" class="footer-gh" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+        </a>
+        <span class="footer-logo-text">Focusveil</span>
+        <div style="width:38px"></div>
+    </footer>
+
+    <script src="lang/en.js"></script>
+    <script src="lang/tr.js"></script>
+    <script src="lang/de.js"></script>
+    <script src="lang/fr.js"></script>
+    <script src="lang/es.js"></script>
+    <script src="lang/pt.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/why.js"></script>
+</body>
+
+</html>

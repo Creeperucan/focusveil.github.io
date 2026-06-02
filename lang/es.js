@@ -20,6 +20,42 @@
         features_title: "El poder de Focusveil",
         features_subtitle: "Un escudo contra todas las distracciones.",
 
+        // 404.html
+        err_title: "Esta página se ha perdido en el espacio&hellip;",
+        err_desc: "La página que buscas no existe. Es posible que se haya movido, eliminado o nunca haya existido.",
+        err_back: "Volver a la página principal",
+
+        // why.html
+        hero_title: `Lamentamos verte partir.<br><span>Focusveil</span> te extrañará.`,
+        hero_sub: `Tu viaje de enfoque no tiene por qué terminar aquí. Si algo no funcionó,
+        nos encantaría saberlo — y nos encantaría aún más tenerte de vuelta.`,
+        hero_feedback_trigger: `Enviar Comentario <i class="fa-solid fa-arrow-down"></i>`,
+
+        reasons_title: "Esto es lo que dejas atrás",
+        reasons_title_sub: "Qué hacía que Focusveil fuera diferente",
+
+        bugs: "🐛 Demasiados errores",
+        missing: "🧩 Características faltantes",
+        slow: "⚡ Ralentizó mi navegador",
+        confusing: "😵 Era confuso de usar",
+        temporary: "🔄 Solo tomándome un descanso",
+        other: "💬 Otro",
+
+        feedback_title: "¿Nos contarías el porqué?",
+        feedback_sub: "Tus comentarios nos ayudan a mejorar Focusveil para todos.",
+        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Enviar comentario`,
+        feedback_thanks: "Gracias por tu comentario!",
+        feedback_placeholder: "¿Tienes alguna otra idea?",
+
+        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Reinstalar Focusveil
+                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+                </svg>`,
+
+        cta_label: "¿Cambié d e opinión?",
+
         features: [
             {
                 icon: "<i class='fa-solid fa-eye-low-vision'></i>",
