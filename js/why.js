@@ -19,10 +19,13 @@ function applyLanguage(lang) {
         }
     });
 
+    // Placeholder çevirici - Güvenli sürüm
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-        const key = el.dataset.i18nPlaceholder;
-        if (translations[key] !== undefined) {
-            el.placeholder = translations[key];
+        if (el) { // Elementin var olduğundan emin oluyoruz
+            const key = el.dataset.i18nPlaceholder;
+            if (translations[key] !== undefined) {
+                el.placeholder = translations[key];
+            }
         }
     });
 
