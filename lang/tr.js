@@ -84,7 +84,7 @@
         ],
 
         faq_label: "SSS",
-        faq_title: "Sık Sorulan Sorular",
+        faq_title: "Sıkça Sorulan Sorular",
 
         faq: [
             {
