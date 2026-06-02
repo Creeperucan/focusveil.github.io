@@ -1,46 +1,65 @@
 // ═══════════════════════════════════════════════════════════════
-//  js/main.js  ·  FocusVeil
-//  ─ Yıldız alanı animasyonu
-//  ─ TR / EN dil geçişi
+//  js/main.js  ·  Focusveil
+//  ─ Yıldız alanı + meteor animasyonu
+//  ─ Dil select-box yönetimi
 //  ─ Özellik kartı render
 //  ─ SSS accordion
-//  ─ Scroll reveal (IntersectionObserver)
+//  ─ Scroll reveal
 //  ─ Navbar scroll efekti
 // ═══════════════════════════════════════════════════════════════
 
 'use strict';
 
 /* ─── DURUM ──────────────────────────────────────────────── */
-let currentLang = 'en';   // ← Varsayılan dil ('tr' veya 'en')
+let currentLang = 'en';   // ← Varsayılan dil
 
 /* ═══════════════════════════════════════════════════════════
    1. DİL YÖNETİCİSİ
 ═══════════════════════════════════════════════════════════ */
 
 function applyLanguage(lang) {
-    if (!window.FocusVeilI18n?.[lang]) return;
+    const t = window.FocusVeilI18n.get(lang);
+    if (!t) return;
     currentLang = lang;
-    const t = window.FocusVeilI18n[lang];
 
-    // html lang özelliğini güncelle
-    document.documentElement.lang = lang === 'tr' ? 'tr' : 'en';
+    // html lang & dir
+    document.documentElement.lang = lang;
+    document.documentElement.dir = t.dir || 'ltr';
 
-    // data-i18n özelliği olan tüm elemanları güncelle
+    // data-i18n elemanlarını güncelle
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    // Dil düğmesi durumlarını güncelle
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        const active = btn.dataset.lang === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', String(active));
-    });
+    // localStorage'a kaydet
+    try { localStorage.setItem('fv_lang', lang); } catch (_) { }
 
-    // Dinamik içerikleri yeniden oluştur
+    // Dropdown label & selected state güncelle
+    syncDropdownLabel(lang);
+
+    // Dinamik bölümleri yeniden oluştur
     renderFeatureCards(t);
     renderFaq(t);
+}
+
+/* ─── Select-box'u mevcut dillerle doldur ─────────────────── */
+function buildLangSelect() {
+    const list = document.getElementById('lang-list');
+    if (!list) return;
+
+    const langs = window.FocusVeilI18n.available();
+
+    list.innerHTML = langs.map(code => {
+        const info = window.FocusVeilI18n.get(code);
+        return `<li
+      class="lang-option"
+      role="option"
+      data-lang="${code}"
+      tabindex="0"
+      aria-selected="false"
+    ><span class="lo-name">${info.label}</span></li>`;
+    }).join('');
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -55,7 +74,7 @@ function renderFeatureCards(t) {
     <article
       class="feature-card reveal"
       role="listitem"
-      style="transition-delay:${i * 75}ms"
+      style="transition-delay:${i * 70}ms"
     >
       <div class="card-icon" aria-hidden="true">${card.icon}</div>
       <h3 class="card-title">${card.title}</h3>
@@ -63,7 +82,6 @@ function renderFeatureCards(t) {
     </article>
   `).join('');
 
-    // Yeni kartları observer'a bağla
     reObserve();
 }
 
@@ -88,32 +106,19 @@ function renderFaq(t) {
         id="faq-q-${i}"
       >
         <span>${item.q}</span>
-        <svg
-          class="faq-chevron"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
-      <div
-        class="faq-answer"
-        id="faq-a-${i}"
-        role="region"
-        aria-labelledby="faq-q-${i}"
-        aria-hidden="true"
-      >
+      <div class="faq-answer" id="faq-a-${i}"
+           role="region" aria-labelledby="faq-q-${i}" aria-hidden="true">
         <div class="faq-answer-inner">${item.a}</div>
       </div>
     </div>
   `).join('');
 
-    // Accordion olay dinleyicileri
     list.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => toggleFaq(btn));
     });
@@ -126,14 +131,12 @@ function toggleFaq(btn) {
     const isOpen = item.classList.contains('open');
     const list = item.closest('.faq-list');
 
-    // Tümünü kapat
     list.querySelectorAll('.faq-item').forEach(it => {
         it.classList.remove('open');
         it.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
         it.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
     });
 
-    // Seçileni aç (zaten açıksa kapalı kalır)
     if (!isOpen) {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
@@ -142,7 +145,7 @@ function toggleFaq(btn) {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   4. SCROLL REVEAL  (IntersectionObserver)
+   4. SCROLL REVEAL
 ═══════════════════════════════════════════════════════════ */
 
 let revealObserver = null;
@@ -157,7 +160,7 @@ function initReveal() {
                 }
             });
         },
-        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.07, rootMargin: '0px 0px -30px 0px' }
     );
     reObserve();
 }
@@ -176,144 +179,162 @@ function initNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
     let ticking = false;
-
     const update = () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
         ticking = false;
     };
-
     window.addEventListener('scroll', () => {
         if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
 }
 
 /* ═══════════════════════════════════════════════════════════
-   6. DİL BUTONLARI
+   6. CUSTOM DİL DROPDOWN
 ═══════════════════════════════════════════════════════════ */
 
-function initLangSwitch() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.dataset.lang;
-            if (lang && lang !== currentLang) applyLanguage(lang);
+function initLangSelect() {
+    const dropdown = document.getElementById('lang-dropdown');
+    const trigger = document.getElementById('lang-trigger');
+    const list = document.getElementById('lang-list');
+    const label = document.getElementById('lang-label');
+    if (!dropdown || !trigger || !list) return;
+
+    // Dropdown aç/kapat
+    function openDropdown() {
+        dropdown.classList.add('open');
+        dropdown.setAttribute('aria-expanded', 'true');
+        // Aktif seçeneğe odaklan
+        const active = list.querySelector('.lang-option.selected') || list.querySelector('.lang-option');
+        if (active) active.focus();
+    }
+
+    function closeDropdown() {
+        dropdown.classList.remove('open');
+        dropdown.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleDropdown() {
+        dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+    }
+
+    // Seçim yap
+    function selectLang(code) {
+        applyLanguage(code);
+        // Seçili sınıfı güncelle
+        list.querySelectorAll('.lang-option').forEach(opt => {
+            const active = opt.dataset.lang === code;
+            opt.classList.toggle('selected', active);
+            opt.setAttribute('aria-selected', String(active));
         });
+        // Etiket güncelle
+        const info = window.FocusVeilI18n.get(code);
+        if (label && info) label.textContent = info.label;
+        closeDropdown();
+    }
+
+    // Tetikleyici tıklama
+    trigger.addEventListener('click', e => { e.stopPropagation(); toggleDropdown(); });
+
+    // Seçenek tıklama
+    list.addEventListener('click', e => {
+        const opt = e.target.closest('.lang-option');
+        if (opt?.dataset.lang) selectLang(opt.dataset.lang);
+    });
+
+    // Klavye desteği
+    trigger.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleDropdown(); }
+        if (e.key === 'Escape') closeDropdown();
+    });
+
+    list.addEventListener('keydown', e => {
+        const opts = [...list.querySelectorAll('.lang-option')];
+        const focus = document.activeElement;
+        const idx = opts.indexOf(focus);
+        if (e.key === 'ArrowDown') { e.preventDefault(); opts[(idx + 1) % opts.length]?.focus(); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); opts[(idx - 1 + opts.length) % opts.length]?.focus(); }
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (focus?.dataset.lang) selectLang(focus.dataset.lang);
+        }
+        if (e.key === 'Escape') { closeDropdown(); trigger.focus(); }
+        if (e.key === 'Tab') closeDropdown();
+    });
+
+    // Dışarı tıkla → kapat
+    document.addEventListener('click', e => {
+        if (!dropdown.contains(e.target)) closeDropdown();
     });
 }
 
-/* ═══════════════════════════════════════════════════════════
-   7. YILDIZ ALANI KANVASI
-═══════════════════════════════════════════════════════════ */
-
-function initStarfield() {
-    const canvas = document.getElementById('starfield');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let W, H, stars = [], shooters = [], rafId;
-
-    /* ── Yıldızları oluştur ── */
-    function buildStars() {
-        stars = [];
-        const count = Math.floor((W * H) / 3200);
-
-        for (let i = 0; i < count; i++) {
-            const tier = Math.random();          // 0-1: küçük → büyük
-            const radius = tier < .65
-                ? Math.random() * .5 + .15          // küçük
-                : tier < .9
-                    ? Math.random() * .7 + .5          // orta
-                    : Math.random() * .8 + 1.0;        // parlak
-
-            // Mor-beyaz renk paleti
-            const colorRoll = Math.random();
-            let color;
-            if (colorRoll > .88) color = '232,121,249';   // pembe-mor
-            else if (colorRoll > .76) color = '167,139,250';   // soft mor
-            else color = '225,215,255';   // soğuk beyaz
-
-            stars.push({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                r: radius,
-                base: Math.random() * .6 + .15,
-                phase: Math.random() * Math.PI * 2,
-                speed: Math.random() * .55 + .15,
-                color
-            });
-        }
+/* ─── applyLanguage içinde dropdown label güncelle ─────── */
+const _origApply = applyLanguage;
+// applyLanguage'ı sarmalayan güncelleyelim (dropdown label için)
+function syncDropdownLabel(lang) {
+    const label = document.getElementById('lang-label');
+    const info = window.FocusVeilI18n.get(lang);
+    if (label && info) label.textContent = info.label;
+    // Seçili sınıfı güncelle
+    const list = document.getElementById('lang-list');
+    if (list) {
+        list.querySelectorAll('.lang-option').forEach(opt => {
+            const active = opt.dataset.lang === lang;
+            opt.classList.toggle('selected', active);
+            opt.setAttribute('aria-selected', String(active));
+        });
     }
-
-    /* ── Kayan yıldız doğur ── */
-    function maybeSpawnShooter() {
-        if (Math.random() < .0018 && shooters.length < 4) {
-            shooters.push({
-                x: Math.random() * W * .75,
-                y: Math.random() * H * .45,
-                vx: 3.5 + Math.random() * 5,
-                vy: 1.8 + Math.random() * 2.2,
-                len: 70 + Math.random() * 110,
-                alpha: 1
-            });
-        }
-    }
-
-    /* ── Çerçeve çiz ── */
-    function draw(ts) {
-        ctx.clearRect(0, 0, W, H);
-
-        /* Sabit yıldızlar */
-        for (const s of stars) {
-            const twinkle = Math.sin(ts * s.speed * .001 + s.phase);
-            const alpha = s.base * (.55 + .45 * (twinkle + 1) / 2);
-
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${s.color},${alpha.toFixed(3)})`;
-            ctx.fill();
-        }
-
-        /* Kayan yıldızlar */
-        maybeSpawnShooter();
-        shooters = shooters.filter(s => s.alpha > 0);
-        for (const s of shooters) {
-            s.x += s.vx;
-            s.y += s.vy;
-            s.alpha -= .014;
-
-            const g = ctx.createLinearGradient(s.x, s.y, s.x - s.len, s.y - s.len * .38);
-            g.addColorStop(0, `rgba(232,180,255,${s.alpha.toFixed(3)})`);
-            g.addColorStop(1, 'rgba(168,85,247,0)');
-
-            ctx.beginPath();
-            ctx.moveTo(s.x, s.y);
-            ctx.lineTo(s.x - s.len, s.y - s.len * .38);
-            ctx.strokeStyle = g;
-            ctx.lineWidth = 1.4;
-            ctx.stroke();
-        }
-
-        rafId = requestAnimationFrame(draw);
-    }
-
-    /* ── Boyutlandırma ── */
-    function resize() {
-        W = canvas.width = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-        buildStars();
-    }
-
-    window.addEventListener('resize', () => {
-        cancelAnimationFrame(rafId);
-        resize();
-        rafId = requestAnimationFrame(draw);
-    }, { passive: true });
-
-    resize();
-    rafId = requestAnimationFrame(draw);
 }
 
 /* ═══════════════════════════════════════════════════════════
-   8. PÜRÜZSÜZ KAYDIRMA (nav linkleri için)
+   7. PARALLAX YILDIZ SİSTEMİ
+   Kaynak: codepen.io/sarazond/pen/LYGbwj
+   ─ 3 katman: küçük (700) / orta (200) / büyük (100)
+   ─ box-shadow değerleri JS'de üretilip CSS'e enjekte edilir
+   ─ ::after pseudo-element'i JS'den erişilemiyor,
+     bu yüzden CSSStyleSheet API ile enjekte ediyoruz
+═══════════════════════════════════════════════════════════ */
+
+function initParallaxStars() {
+    // n adet rastgele pozisyon üret → "Xpx Ypx #FFF" formatı
+    function makeShadows(n, color) {
+        const parts = [];
+        for (let i = 0; i < n; i++) {
+            const x = Math.floor(Math.random() * 2000);
+            const y = Math.floor(Math.random() * 2000);
+            parts.push(`${x}px ${y}px ${color}`);
+        }
+        return parts.join(', ');
+    }
+
+    // Her katman için renk: saf beyaz yerine hafif soğuk beyaz tonu
+    const small = makeShadows(700, '#FFF');
+    const medium = makeShadows(200, '#FFF');
+    const big = makeShadows(100, '#FFF');
+
+    // Elemanları al
+    const s1 = document.getElementById('stars');
+    const s2 = document.getElementById('stars2');
+    const s3 = document.getElementById('stars3');
+    if (!s1 || !s2 || !s3) return;
+
+    // Element stillerini set et
+    s1.style.boxShadow = small;
+    s2.style.boxShadow = medium;
+    s3.style.boxShadow = big;
+
+    // ::after pseudo-elementleri için <style> etiketi enjekte et
+    // (pseudo-elementlere JS ile doğrudan erişilemez)
+    const style = document.createElement('style');
+    style.textContent = `
+    #stars::after  { box-shadow: ${small};  }
+    #stars2::after { box-shadow: ${medium}; }
+    #stars3::after { box-shadow: ${big};    }
+  `;
+    document.head.appendChild(style);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   8. PÜRÜZSÜZ KAYDIRMA
 ═══════════════════════════════════════════════════════════ */
 
 function initSmoothScroll() {
@@ -329,16 +350,20 @@ function initSmoothScroll() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   9. BAŞLAT
+   10. BAŞLAT
 ═══════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initStarfield();
+    initParallaxStars();
     initNavbar();
-    initLangSwitch();
+    buildLangSelect();
+    initLangSelect();
     initSmoothScroll();
     initReveal();
 
-    // Varsayılan dili uygula (i18n.js yüklü olmalı)
-    applyLanguage(currentLang);
+    // Kaydedilmiş dili yükle, yoksa varsayılan 'en'
+    let savedLang = 'en';
+    try { savedLang = localStorage.getItem('fv_lang') || 'en'; } catch (_) { }
+    const available = window.FocusVeilI18n.available();
+    applyLanguage(available.includes(savedLang) ? savedLang : 'en');
 });
