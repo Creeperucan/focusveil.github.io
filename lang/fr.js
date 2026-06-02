@@ -29,7 +29,7 @@
         hero_title: `Nous sommes désolés de vous voir partir.<br><span>Focusveil</span> vous manquera.`,
         hero_sub: `Votre parcours de concentration n'a pas besoin de s'arrêter ici. Si quelque chose ne fonctionnait pas,
         nous aimerions le savoir — et nous aimerions encore plus vous revoir.`,
-        hero_feedback_trigger: `Envoyer un Commentaire <i class="fa-solid fa-arrow-down"></i>`,
+        hero_feedback_trigger: "Envoyer un Commentaire",
 
         reasons_title: "Voici ce que vous laissez derrière vous",
         reasons_title_sub: "Ce qui rendait Focusveil différent",
@@ -43,17 +43,11 @@
 
         feedback_title: "Voulez-vous nous dire pourquoi ?",
         feedback_sub: "Vos commentaires nous aident à améliorer Focusveil pour tout le monde.",
-        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Envoyer un commentaire`,
+        send_feedback: "Envoyer un commentaire",
         feedback_thanks: "Merci pour votre commentaire!",
         feedback_placeholder: "Avez-vous autre chose à ajouter?",
 
-        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Focusveil Réinstaller
-                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
-                    aria-hidden="true">
-                    <path
-                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
-                </svg>`,
-
+        reinstall_btn: "Focusveil Réinstaller",
         cta_label: "Vous avez changé d'avis?",
 
         features: [
@@ -89,8 +83,8 @@
             }
         ],
 
-        faq_label: "FAQ",
-        faq_title: "Questions fréquemment posées",
+        faq_label: "QFP",
+        faq_title: "Questions Fréquemment Posées",
 
         faq: [
             {
@@ -114,9 +108,5 @@
                 a: "Ouvrez simplement un issue sur notre page GitHub — chaque retour est apprécié !"
             }
         ],
-
-        footer_copy: "© 2025 Focusveil. Tous droits réservés.",
-        footer_privacy: "Politique de confidentialité",
-        footer_contact: "Contact"
     };
 })();

@@ -29,7 +29,7 @@
         hero_title: `Wir sind traurig, dich gehen zu sehen.<br><span>Focusveil</span> wird dich vermissen.`,
         hero_sub: `Deine Fokusreise muss hier nicht enden. Wenn etwas nicht funktioniert hat,
         würden wir es gerne wissen — und noch mehr, wir würden dich gerne wieder begrüßen.`,
-        hero_feedback_trigger: `Sende Feedback <i class="fa-solid fa-arrow-down"></i>`,
+        hero_feedback_trigger: "Sende Feedback",
 
         reasons_title: "Das lässt du hinter dir",
         reasons_title_sub: "Was Focusveil besonders machte",
@@ -43,17 +43,11 @@
 
         feedback_title: "Warum gibst du uns Bescheid?",
         feedback_sub: "Dein Feedback hilft uns, Focusveil für alle zu verbessern.",
-        send_feedback: `<i class='fa-regular fa-paper-plane' aria-hidden='true'></i> Feedback senden`,
+        send_feedback: "Feedback senden",
         feedback_thanks: "Danke für dein Feedback!",
         feedback_placeholder: "Haben Sie noch etwas hinzuzufügen?",
 
-        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Focusveil Erneut Installieren
-                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
-                    aria-hidden="true">
-                    <path
-                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
-                </svg>`,
-
+        reinstall_btn: "Focusveil Erneut Installieren",
         cta_label: "Hab deine Meinung geändert?",
 
         features: [
@@ -89,8 +83,8 @@
             }
         ],
 
-        faq_label: "FAQ",
-        faq_title: "Häufig gestellte Fragen",
+        faq_label: "HGF",
+        faq_title: "Häufig Gestellte Fragen",
 
         faq: [
             {
@@ -114,9 +108,5 @@
                 a: "Öffne einfach ein Issue auf unserer GitHub-Seite — jedes Feedback wird geschätzt!"
             }
         ],
-
-        footer_copy: "© 2025 Focusveil. Alle Rechte vorbehalten.",
-        footer_privacy: "Datenschutzrichtlinie",
-        footer_contact: "Kontakt"
     };
 })();

@@ -1,3 +1,4 @@
+/* Language */
 let currentLang = "en";
 
 function applyLanguage(lang) {
@@ -46,10 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyLanguage(lang);
 });
 
-/* ═══════════════════════════════════════════════════════════
-   2. ÖZELLİK KARTLARI
-═══════════════════════════════════════════════════════════ */
-
+/* Cards */
 function renderFeatureCards(t) {
     const grid = document.getElementById('features-grid');
     if (!grid || !Array.isArray(t.features)) return;
@@ -69,7 +67,31 @@ function renderFeatureCards(t) {
     reObserve();
 }
 
-/* ── Parallax stars ────────────────────────────────────── */
+/* Scroll Reveal */
+let revealObserver = null;
+
+function initReveal() {
+    revealObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.07, rootMargin: '0px 0px -30px 0px' }
+    );
+    reObserve();
+}
+
+function reObserve() {
+    if (!revealObserver) return;
+    document.querySelectorAll('.reveal:not(.visible)')
+        .forEach(el => revealObserver.observe(el));
+}
+
+/* Stars */
 (function () {
     function makeShadows(n) {
         const p = [];
@@ -89,7 +111,7 @@ function renderFeatureCards(t) {
     document.head.appendChild(st);
 })();
 
-/* ── Reason pills ──────────────────────────────────────── */
+/* Pills */
 document.querySelectorAll('.pick-label').forEach(label => {
     label.addEventListener('click', () => {
         document.querySelectorAll('.pick-label').forEach(l => l.classList.remove('checked'));
@@ -97,18 +119,11 @@ document.querySelectorAll('.pick-label').forEach(label => {
     });
 });
 
-/* ── Send feedback (GitHub issues) ────────────────────── */
+/* Feedback */
 document.getElementById('send-btn').addEventListener('click', () => {
     const reason = document.querySelector('.pick-label.checked input')?.value || '';
     const text = document.getElementById('feedback-text').value.trim();
     if (!reason && !text) return;
-
-    /*
-      ╔══════════════════════════════════════════════════════════════╗
-      ║  GitHub Issues URL'ini kendi repo adresinle güncelle:        ║
-      ║  https://github.com/KULLANICI/REPO/issues/new               ║
-      ╚══════════════════════════════════════════════════════════════╝
-    */
     const body = encodeURIComponent(
         '**Removal reason:** ' + (reason || 'not specified') + '\n\n' +
         '**Additional feedback:**\n' + (text || '—')

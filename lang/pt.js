@@ -29,7 +29,7 @@
         hero_title: `Lamentamos ver você partir.<br><span>Focusveil</span> vai sentir sua falta.`,
         hero_sub: `Sua jornada de foco não precisa terminar aqui. Se algo não funcionou,
         gostaríamos de saber — e gostaríamos ainda mais de ter você de volta.`,
-        hero_feedback_trigger: `Enviar Feedback <i class="fa-solid fa-arrow-down"></i>`,
+        hero_feedback_trigger: "Enviar Feedback",
 
         reasons_title: "Aqui está o que você está deixando para trás",
         reasons_title_sub: "O que tornava o Focusveil diferente",
@@ -43,17 +43,11 @@
 
         feedback_title: "Você pode nos contar o porquê?",
         feedback_sub: "Seu feedback nos ajuda a melhorar o Focusveil para todos.",
-        send_feedback: `<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Enviar feedback`,
+        send_feedback: "Enviar Feedback",
         feedback_thanks: "Obrigado pelo seu feedback!",
         feedback_placeholder: "Quer compartilhar algo mais? (opcional)",
 
-        reinstall_btn: `<i class="fa-brands fa-github" aria-hidden="true"></i> Reinstalar Focusveil
-                    <svg class="reinstall-arrow" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
-                    aria-hidden="true">
-                    <path
-                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
-                </svg>`,
-
+        reinstall_btn: "Reinstalar Focusveil",
         cta_label: "Mudou de ideia?",
 
         features: [
@@ -89,8 +83,8 @@
             }
         ],
 
-        faq_label: "FAQ",
-        faq_title: "Perguntas frequentes",
+        faq_label: "PF",
+        faq_title: "Perguntas Frequentes",
 
         faq: [
             {
@@ -114,9 +108,5 @@
                 a: "Abra um issue na nossa página do GitHub — todo o feedback é apreciado!"
             }
         ],
-
-        footer_copy: "© 2025 Focusveil. Todos os direitos reservados.",
-        footer_privacy: "Política de privacidade",
-        footer_contact: "Contato"
     };
 })();

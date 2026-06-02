@@ -1,3 +1,4 @@
+/* Language */
 let currentLang = "en";
 
 function applyLanguage(lang) {
@@ -34,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     applyLanguage(lang);
 });
 
-// Parallax yıldız gölgelerini üret (main.js ile aynı mantık)
+/* Stars */
+
 (function () {
     function makeShadows(n) {
         const parts = [];

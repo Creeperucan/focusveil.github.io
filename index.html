@@ -22,18 +22,12 @@
 
 <body>
 
-    <!-- ════════════════════════════════════════
-       ARKAPLAN: CSS Parallax Piksel Yıldızlar
-       (codepen.io/sarazond/pen/LYGbwj)
-       box-shadow değerleri JS tarafından üretilir
-  ════════════════════════════════════════ -->
+    <!-- Background -->
     <div id="stars" aria-hidden="true"></div>
     <div id="stars2" aria-hidden="true"></div>
     <div id="stars3" aria-hidden="true"></div>
 
-    <!-- ════════════════════════════════════════
-       NAVİGASYON
-  ════════════════════════════════════════ -->
+    <!-- Navigation -->
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="#" class="nav-logo">Focusveil</a>
@@ -41,38 +35,23 @@
                 <a href="#features" class="nav-link" data-i18n="nav_features">Features</a>
                 <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
 
-                <!-- Custom dil dropdown — JS tarafından doldurulur -->
                 <div class="lang-dropdown" id="lang-dropdown" role="combobox" aria-haspopup="listbox"
                     aria-expanded="false" aria-label="Select language">
 
-                    <!-- Tetikleyici buton -->
                     <button class="lang-trigger" id="lang-trigger" type="button" aria-controls="lang-list">
-                        <svg class="ld-globe" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" aria-hidden="true">
-                            <circle cx="9" cy="9" r="7.2" />
-                            <path d="M9 1.8a12 12 0 0 1 0 14.4M9 1.8a12 12 0 0 0 0 14.4" />
-                            <path d="M1.8 9h14.4" />
-                            <path d="M2.5 5.8h13M2.5 12.2h13" />
-                        </svg>
+                        <i class="fa-solid fa-globe"></i>
                         <span class="ld-label" id="lang-label">English</span>
-                        <svg class="ld-caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M1 1l5 5 5-5" />
-                        </svg>
+                        <i class="fa-solid fa-angle-down"></i>
                     </button>
 
-                    <!-- Dropdown panel -->
                     <ul class="lang-list" id="lang-list" role="listbox" aria-label="Languages">
-                        <!-- JS tarafından doldurulur -->
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- ════════════════════════════════════════
-       HERO BÖLÜMÜ
-  ════════════════════════════════════════ -->
+    <!-- Hero -->
     <section id="hero" aria-label="Hero">
         <div class="hero-content">
 
@@ -86,21 +65,12 @@
                 Block every web distraction with one click. Lightweight, fast, and privacy-first.
             </p>
 
-            <!--
-        ╔════════════════════════════════════════════════════╗
-        ║  İndirme bağlantısını buradan değiştir:            ║
-        ║  href="https://github.com/KULLANICI/REPO/releases" ║
-        ╚════════════════════════════════════════════════════╝
-      -->
+            <!-- Release Link -->
             <a href="https://github.com/Creeperucan/Focusveil-extension/releases" target="_blank"
                 rel="noopener noreferrer" class="cta-btn reveal" id="cta-main">
                 <i class="fa-brands fa-github cta-icon" aria-hidden="true"></i>
                 <span data-i18n="cta_btn">Download from GitHub</span>
-                <svg class="cta-icon arrow-icon" viewBox="0 0 20 20" width="14" height="14" fill="currentColor"
-                    aria-hidden="true">
-                    <path
-                        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
-                </svg>
+                <i class="fa-solid fa-arrow-right" style="color: rgb(255, 255, 255);"></i>
             </a>
 
             <p class="hero-note reveal" data-i18n="hero_note">
@@ -111,10 +81,7 @@
         <div class="hero-orb" aria-hidden="true"></div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       ÖZELLİKLER
-       ► Kartları düzenle: lang/xx.js → features[]
-  ════════════════════════════════════════ -->
+    <!-- Features -->
     <section id="features" aria-labelledby="features-heading">
         <div class="section-inner">
             <header class="section-header reveal">
@@ -126,10 +93,7 @@
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       SSS
-       ► Soruları düzenle: lang/xx.js → faq[]
-  ════════════════════════════════════════ -->
+    <!-- FAQ -->
     <section id="faq" aria-labelledby="faq-heading">
         <div class="section-inner">
             <header class="section-header reveal">
@@ -140,32 +104,23 @@
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       FOOTER
-       ► Linkleri buradan düzenle
-  ════════════════════════════════════════ -->
+    <!-- Footer -->
     <footer>
         <a href="https://github.com/Creeperucan/" target="_blank" rel="noopener" class="footer-gh" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-            </svg>
+            <i class="fa-brands fa-github" aria-hidden="true" style="font-size: 1.5rem;"></i>
         </a>
         <span class="footer-logo-text">Focusveil</span>
-        <div style="width:38px"></div>
     </footer>
 
-    <!-- ════════════════════════════════════════
-       SCRIPTS — Yeni dil eklemek için buraya
-       <script src="lang/xx.js"></script> ekle
-  ════════════════════════════════════════ -->
+    <!-- Scripts -->
     <script src="lang/en.js"></script>
     <script src="lang/tr.js"></script>
     <script src="lang/de.js"></script>
     <script src="lang/fr.js"></script>
     <script src="lang/es.js"></script>
     <script src="lang/pt.js"></script>
-    <script src="js/i18n.js"></script>
+
+    <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-/* ── Temel ────────────────────────────────────────── */
+/* Base */
 *,
 *::before,
 *::after {
@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-/* ── Parallax yıldızlar ───────────────────────────── */
+/* Stars */
 #stars,
 #stars2,
 #stars3 {
@@ -93,7 +93,7 @@ body {
     }
 }
 
-/* ── İçerik ────────────────────────────────────────── */
+/* Content */
 .container {
     position: relative;
     z-index: 1;
@@ -104,7 +104,6 @@ body {
     max-width: 560px;
 }
 
-/* Büyük 404 */
 .err-code {
     font-family: 'Orbitron', monospace;
     font-size: clamp(6rem, 22vw, 11rem);
@@ -138,7 +137,6 @@ body {
     }
 }
 
-/* Rozet */
 .err-badge {
     display: inline-flex;
     align-items: center;
@@ -178,7 +176,6 @@ body {
     }
 }
 
-/* Başlık */
 .err-title {
     font-family: 'Syne', sans-serif;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
@@ -187,7 +184,6 @@ body {
     line-height: 1.3;
 }
 
-/* Açıklama */
 .err-desc {
     font-size: 1rem;
     font-weight: 300;
@@ -196,7 +192,7 @@ body {
     max-width: 380px;
 }
 
-/* Geri dön butonu */
+/* Button */
 .back-btn {
     display: inline-flex;
     align-items: center;
@@ -241,26 +237,7 @@ body {
     transform: translateX(-3px);
 }
 
-/* Focusveil logo linki */
-.brand-link {
-    position: fixed;
-    top: 1.5rem;
-    left: 2rem;
-    font-family: 'Orbitron', monospace;
-    font-size: .9rem;
-    font-weight: 700;
-    letter-spacing: .14em;
-    color: #3a5070;
-    text-decoration: none;
-    z-index: 10;
-    transition: color 150ms ease;
-}
-
-.brand-link:hover {
-    color: #38bdf8;
-}
-
-/* Küçük ekran */
+/* Small screen */
 @media (max-width: 480px) {
     .err-desc {
         font-size: .9rem;
@@ -272,7 +249,7 @@ body {
     }
 }
 
-/* Hareket azalt */
+/* Motion reduce */
 @media (prefers-reduced-motion: reduce) {
 
     #stars,

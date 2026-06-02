@@ -1,54 +1,38 @@
-/* ═══════════════════════════════════════════════════════════════
-   css/style.css  ·  Focusveil
-   ─ Renk değişkenleri :root içinde — kolayca düzenlenebilir
-   ─ Mor ağırlıklı değil; gerçek uzay renk paleti
-═══════════════════════════════════════════════════════════════ */
-
-/* ─── TASARIM TOKEN'LARI ─────────────────────────────────── */
+/* Design Tokens */
 :root {
-    /* ── Arka plan ─────────────────────────────────────────── */
+    /* Background */
     --bg: #020c18;
-    /* Derin uzay mavi-siyah          */
     --bg-alt: #030d1e;
 
-    /* ── Yüzey / Kart ─────────────────────────────────────── */
+    /* Surface/Card */
     --surface: rgba(8, 20, 48, 0.55);
     --border: rgba(80, 105, 200, 0.18);
     --border-hover: rgba(110, 140, 240, 0.38);
 
-    /* ── Aksan renkleri (çeşitli, tek renk değil) ─────────── */
+    /* Accent Colors */
     --indigo: #6366f1;
-    /* Ana aksan — indigo             */
     --violet: #8b5cf6;
-    /* İkincil — yumuşak mor          */
     --sky: #38bdf8;
-    /* Kontrast aksan — gökyüzü mavisi */
     --teal: #2dd4bf;
-    /* Üçüncül — teal                 */
     --rose: #fb7185;
-    /* Sıcak aksan — kırmızı-pembe    */
 
-    /* CSS uyumu için eski adlar (yeni değerlerle) */
     --purple: var(--indigo);
     --purple-dark: #4f46e5;
     --purple-deep: #1e1b4b;
     --accent: var(--sky);
     --glow: rgba(99, 102, 241, 0.25);
 
-    /* ── Metin ─────────────────────────────────────────────── */
+    /* Text */
     --text: #cfe0f5;
-    /* Soğuk beyaz-mavi               */
     --text-muted: #8baac8;
-    /* Orta tonu                      */
     --text-dim: #3a5070;
-    /* Soluk                          */
 
-    /* ── Yazı tipleri ──────────────────────────────────────── */
+    /* Fonts */
     --font-display: 'Orbitron', monospace;
     --font-head: 'Syne', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
-    /* ── Radyüs & Geçiş ───────────────────────────────────── */
+    /* Radius & Transition */
     --r-sm: 8px;
     --r-md: 14px;
     --r-lg: 22px;
@@ -61,7 +45,7 @@
     --t-slow: 550ms;
 }
 
-/* ─── RESET ──────────────────────────────────────────────── */
+/* RESET */
 *,
 *::before,
 *::after {
@@ -86,8 +70,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Arkaplan gradienti sabit tutmak için fixed pseudo-element.
-   html/body'ye vermek scroll'da kesilmesine yol açıyor. */
 body::before {
     content: '';
     position: fixed;
@@ -108,18 +90,7 @@ button {
     background: none;
 }
 
-img,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-/* ─── PARALLAX YILDIZ SİSTEMİ ────────────────────────────────
-   Kaynak: codepen.io/sarazond/pen/LYGbwj
-   box-shadow değerleri js/main.js → initParallaxStars() ile üretilir
-──────────────────────────────────────────────────────────── */
-
-/* Küçük yıldızlar — 1px, 700 adet, 50s */
+/* Stars */
 #stars {
     position: fixed;
     top: 0;
@@ -127,7 +98,6 @@ svg {
     width: 1px;
     height: 1px;
     background: transparent;
-    /* box-shadow: JS tarafından set edilir */
     animation: animStar 50s linear infinite;
     z-index: 0;
     pointer-events: none;
@@ -141,10 +111,8 @@ svg {
     width: 1px;
     height: 1px;
     background: transparent;
-    /* box-shadow: JS tarafından set edilir */
 }
 
-/* Orta yıldızlar — 2px, 200 adet, 100s */
 #stars2 {
     position: fixed;
     top: 0;
@@ -167,7 +135,6 @@ svg {
     background: transparent;
 }
 
-/* Büyük yıldızlar — 3px, 100 adet, 150s */
 #stars3 {
     position: fixed;
     top: 0;
@@ -200,7 +167,7 @@ svg {
     }
 }
 
-/* ─── Z-INDEX ────────────────────────────────────────────── */
+/* z-index */
 #navbar,
 #hero,
 #features,
@@ -210,7 +177,7 @@ svg {
     z-index: 1;
 }
 
-/* ─── NAVİGASYON ─────────────────────────────────────────── */
+/* Navigation */
 #navbar {
     position: fixed;
     top: 0;
@@ -278,13 +245,12 @@ svg {
     color: var(--text);
 }
 
-/* ── Custom Dil Dropdown ────────────────────────────────── */
+/* Custom Language Dropdown */
 .lang-dropdown {
     position: relative;
     user-select: none;
 }
 
-/* Tetikleyici pill */
 .lang-trigger {
     display: flex;
     align-items: center;
@@ -346,7 +312,6 @@ svg {
     opacity: 1;
 }
 
-/* Dropdown panel */
 .lang-list {
     position: absolute;
     top: calc(100% + .5rem);
@@ -363,7 +328,6 @@ svg {
         0 0 40px rgba(30, 50, 160, .12);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    /* Kapalıyken görünmez & tıklanamaz */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px) scale(.97);
@@ -375,14 +339,12 @@ svg {
     z-index: 200;
 }
 
-/* Açık hali */
 .lang-dropdown.open .lang-list {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
 }
 
-/* Her dil seçeneği */
 .lang-option {
     display: flex;
     align-items: center;
@@ -422,11 +384,7 @@ svg {
     box-shadow: 0 0 6px var(--sky);
 }
 
-/* Dil kodu etiketi — kaldırıldı */
-
-/* İnce ayırıcı çizgi — kaldırıldı */
-
-/* ─── HERO ────────────────────────────────────────────────── */
+/* Hero */
 #hero {
     min-height: 100vh;
     display: flex;
@@ -448,7 +406,6 @@ svg {
     max-width: 780px;
 }
 
-/* Ana başlık — indigo/mavi-glow, saf mor değil */
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(3.5rem, 12vw, 8.5rem);
@@ -497,7 +454,7 @@ svg {
     line-height: 1.8;
 }
 
-/* CTA — indigo gradient, sky mavi glow */
+/* CTA */
 .cta-btn {
     display: inline-flex;
     align-items: center;
@@ -568,7 +525,7 @@ svg {
     letter-spacing: .045em;
 }
 
-/* Merkez parlaklık — indigo rengi */
+/* Orb */
 .hero-orb {
     position: absolute;
     width: 600px;
@@ -600,7 +557,7 @@ svg {
     }
 }
 
-/* ─── BÖLÜM TEMELİ ──────────────────────────────────────── */
+/* Section */
 section {
     padding: 7rem 0;
 }
@@ -619,12 +576,11 @@ section {
 .section-label {
     display: inline-block;
     font-family: var(--font-head);
-    font-size: .7rem;
+    font-size: .9rem;
     font-weight: 700;
     letter-spacing: .2em;
     text-transform: uppercase;
     color: var(--sky);
-    /* Gökyüzü mavisi — mor değil */
     margin-bottom: .8rem;
 }
 
@@ -646,7 +602,7 @@ section {
     font-weight: 300;
 }
 
-/* ─── ÖZELLİK KARTLARI ─────────────────────────────────── */
+/* Feature Cards */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -732,12 +688,12 @@ section {
 
 .card-desc {
     font-size: .9375rem;
-    color: var(--text-dim);
+    color: #8baac8;
     line-height: 1.75;
     font-weight: 300;
 }
 
-/* ─── SSS ─────────────────────────────────────────────────── */
+/* FAQ */
 .faq-list {
     max-width: 740px;
     margin: 0 auto;
@@ -806,12 +762,12 @@ section {
 .faq-answer-inner {
     padding: 0 1.625rem 1.375rem;
     font-size: .9375rem;
-    color: var(--text-dim);
+    color: #8baac8;
     line-height: 1.8;
     font-weight: 300;
 }
 
-/* ─── FOOTER ─────────────────────────────────────────────── */
+/* Footer */
 footer {
     position: relative;
     z-index: 1;
@@ -864,7 +820,7 @@ footer {
     fill: currentColor;
 }
 
-/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+/* Scroll Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -898,7 +854,7 @@ footer {
     transition-delay: 320ms;
 }
 
-/* ─── SCROLLBAR ──────────────────────────────────────────── */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -916,7 +872,7 @@ footer {
     background: rgba(80, 110, 220, .55);
 }
 
-/* ─── SEÇİM & ODAK ───────────────────────────────────────── */
+/* Selection & Focus */
 ::selection {
     background: rgba(99, 102, 241, .35);
     color: #fff;
@@ -928,7 +884,7 @@ footer {
     border-radius: 4px;
 }
 
-/* ─── MOBİL ─────────────────────────────────────────────── */
+/* Mobile */
 @media (max-width: 768px) {
     .nav-link {
         display: none;
@@ -958,7 +914,7 @@ footer {
     }
 }
 
-/* ─── HAREKETSİZ MOD ─────────────────────────────────────── */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 
     *,
