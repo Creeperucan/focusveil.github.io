@@ -9,7 +9,7 @@
         dir: 'ltr',
 
         nav_features: 'Funcionalidades',
-        nav_faq: 'FAQ',
+        nav_faq: 'PF',
 
         hero_tagline: "Coloque o véu sobre as distrações.<br>Descubra o seu verdadeiro foco.",
         hero_desc: "Bloqueie cada distração da web com um clique. Leve, rápido e com privacidade em primeiro lugar.",

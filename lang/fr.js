@@ -9,7 +9,7 @@
         dir: 'ltr',
 
         nav_features: 'Fonctionnalités',
-        nav_faq: 'FAQ',
+        nav_faq: 'QFP',
 
         hero_tagline: "Posez le voile sur les distractions.<br>Découvrez votre vraie concentration.",
         hero_desc: "Bloquez chaque distraction web en un clic. Léger, rapide et respectueux de la vie privée.",

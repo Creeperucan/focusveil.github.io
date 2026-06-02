@@ -9,7 +9,7 @@
         dir: 'ltr',
 
         nav_features: 'Funktionen',
-        nav_faq: 'FAQ',
+        nav_faq: 'HGF',
 
         hero_tagline: "Zieh den Schleier über Ablenkungen.<br>Entdecke deine wahre Konzentration.",
         hero_desc: "Blockiere jede Web-Ablenkung mit einem Klick. Leichtgewichtig, schnell und datenschutzfreundlich.",
